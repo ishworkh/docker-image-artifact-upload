@@ -1,0 +1,12 @@
+name: 'Docker Image Artifact Upload'
+description: 'Uploads docker image artifact for use across jobs in same workflow'
+inputs:
+  image: 
+    description: Docker image to upload
+    required: true
+outputs:
+  artifact_name: 
+    description: Name of artifact created in the process
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
