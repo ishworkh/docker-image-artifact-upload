@@ -25,7 +25,7 @@
   "homepage": "https://github.com/ishworkh/docker-image-artifact-upload",
   "dependencies": {
     "@actions/core": "^1.2",
-    "docker-image-artifact": "git+ssh://git@github.com/ishworkh/docker-image-artifact.git#semver:^1.0"
+    "docker-image-artifact": "ishworkh/docker-image-artifact.git#semver:^1.0"
   },
   "devDependencies": {
     "webpack": "^4.44",

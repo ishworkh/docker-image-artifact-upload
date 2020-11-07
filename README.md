@@ -19,7 +19,6 @@ Name of artifact created in the process. Eg. `action_image_artifact_foo_latest` 
 
 ## Example usage
 
-### With an extractor regex 
 ```
 ...
 jobs:
@@ -43,5 +42,3 @@ jobs:
 
 ## License
 This library is under the MIT license.
-
-
