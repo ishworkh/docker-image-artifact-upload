@@ -4,7 +4,6 @@ Github action for uploading a docker image artifact. It leverages github action'
 
 See [docker-image-artifact-download](https://github.com/ishworkh/docker-image-artifact-download).
 
-
 ## Inputs
 
 ### `image`
@@ -17,9 +16,9 @@ See [docker-image-artifact-download](https://github.com/ishworkh/docker-image-ar
 
 Name of artifact created in the process. Eg. `action_image_artifact_foo_latest` for `foo:latest` image.
 
-## Example usage
+## Example
 
-```
+```yaml
 ...
 jobs:
   build_and_upload:
@@ -40,5 +39,34 @@ jobs:
 
 ```
 
+In conjuction with `docker/build-push-action@v2` buildx builds,
+
+```yaml
+jobs:
+  build_and_upload:
+    - name: Checkout project
+      uses: actions/checkout@v2
+      
+    - name: Set up Docker Buildx
+      id: buildx
+      uses: docker/setup-buildx-action@v1
+  
+    - name: Build and push
+      id: docker_build
+      uses: docker/build-push-action@v2
+      with:
+        push: false
+        builder: ${{ steps.buildx.outputs.name }}
+        tags: "test_image:latest"
+        load: true
+
+    - name: Upload image
+      uses: ishworkh/docker-image-artifact-upload@v1
+      with:
+        image: "test_image:latest"
+
+```
+
 ## License
+
 This library is under the MIT license.
