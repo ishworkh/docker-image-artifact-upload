@@ -10,6 +10,10 @@ See [docker-image-artifact-download](https://github.com/ishworkh/docker-image-ar
 
 **Required** Image name that is to be uploaded.
 
+### `retention_days`
+
+**Optional** Number of retention days passed to underlying [`@actions/artifact uploadArtifact method`](https://github.com/actions/toolkit/tree/main/packages/artifact#available-options) 
+
 ## Outputs
 
 ### `artifact_name`
