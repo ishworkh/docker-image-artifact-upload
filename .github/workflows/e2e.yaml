@@ -1,0 +1,41 @@
+name: E2E Test
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+    branches:
+      - "master"
+jobs:
+  build-test-image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build test image
+        run: |
+          docker build -t test_image:${{ github.run_id }} -<<EOF
+            FROM busybox
+            RUN touch abc.txt
+          EOF
+
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Upload image artifact
+        uses: ./
+        with:
+          image: "test_image:${{ github.run_id }}"
+
+  run-e2e-test:
+    needs: build-test-image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test artifact exists
+        id: download-artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: action_image_artifact_test_image_${{ github.run_id }}
+
+      - name: Test artifact is docker loadable
+        run: |
+          docker load -i ${{ steps.download-artifact.outputs.download-path }}/test_image_${{ github.run_id }}
