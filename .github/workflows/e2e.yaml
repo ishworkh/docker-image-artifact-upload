@@ -25,6 +25,7 @@ jobs:
         uses: ./
         with:
           image: "test_image:${{ github.run_id }}"
+          retention_days: "1"
 
   run-e2e-test:
     needs: build-test-image

@@ -3,7 +3,7 @@ const { upload } = require('docker-image-artifact');
 const githubActionIO = require('./actions_io');
 
 const INPUT_IMAGE = 'image';
-const INPUT_RETENTION_DAYS = 'retentionDays';
+const INPUT_RETENTION_DAYS = 'retention_days';
 
 const OUTPUT_ARTIFACT_NAME = 'artifact_name';
 

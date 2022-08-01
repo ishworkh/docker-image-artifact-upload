@@ -43,6 +43,8 @@ jobs:
 
 ```
 
+With `rentention_days`,
+
 ```yaml
 ...
 jobs:
@@ -61,7 +63,7 @@ jobs:
       uses: ishworkh/docker-image-artifact-upload@v1
       with:
         image: "test_image:latest"
-        retentionDays: "2"
+        retention_days: "2"
 
 ```
 

@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@actions/core": "^1.9",
-    "docker-image-artifact": "/Users/ikhadka/Personal/docker-image-artifact"
+    "docker-image-artifact": "ishworkh/docker-image-artifact.git#semver:^1.2"
   },
   "devDependencies": {
     "webpack": "^5.74",

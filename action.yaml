@@ -4,7 +4,7 @@ inputs:
   image:
     description: Docker image to upload
     required: true
-  retentionDays:
+  retention_days:
     description: Retention days for the image artifact
     required: false
     default: "0"
