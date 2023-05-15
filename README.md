@@ -95,6 +95,14 @@ jobs:
 
 ```
 
+## Changelogs
+
+# `v2.0.0`
+
+- Use `docker-image-artifact` to `v2.0.0`.
+- Move code to `src` directory.
+- Introduce new major version for the release. No single major version like `v1` will be released from now on.
+
 ## License
 
 This library is under the MIT license.
