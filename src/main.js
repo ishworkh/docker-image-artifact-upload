@@ -1,5 +1,5 @@
 
-const { upload } = require('docker-image-artifact');
+const { upload, createArtifactUploader } = require('docker-image-artifact');
 const githubActionIO = require('./actions_io');
 
 const INPUT_IMAGE = 'image';
@@ -11,7 +11,7 @@ async function runAction(getInput, writeOutput) {
     const imageName = getInput(INPUT_IMAGE, true);
     const retentionDays = parseInt(getInput(INPUT_RETENTION_DAYS));
 
-    const artifactName = await upload(imageName, retentionDays);
+    const artifactName = await upload(imageName, createArtifactUploader(), retentionDays);
     writeOutput(OUTPUT_ARTIFACT_NAME, artifactName);
 }
 

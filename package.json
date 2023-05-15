@@ -1,9 +1,9 @@
 {
   "name": "docker-image-artifact-upload",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "Github action to upload docker image as artifact to share between jobs",
   "scripts": {
-    "build": "./node_modules/.bin/webpack --entry ./index.js --target node --output-path dist/"
+    "build": "./node_modules/.bin/webpack --mode production --entry ./src/main.js --target node --output-path dist/"
   },
   "repository": {
     "type": "git",
@@ -29,7 +29,8 @@
   },
   "dependencies": {
     "@actions/core": "^1.9",
-    "docker-image-artifact": "ishworkh/docker-image-artifact.git#semver:^1.2"
+    "docker-image-artifact": "ishworkh/docker-image-artifact.git#semver:^2.0",
+    "original-fs": "^1.2"
   },
   "devDependencies": {
     "webpack": "^5.74",
