@@ -1,6 +1,6 @@
 {
   "name": "docker-image-artifact-upload",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Github action to upload docker image as artifact to share between jobs",
   "scripts": {
     "build": "./node_modules/.bin/webpack --mode production --entry ./src/main.js --target node --output-path dist/"
