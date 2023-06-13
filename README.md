@@ -1,8 +1,10 @@
 # Docker Image Artifact Upload
 
-Github action for uploading a docker image artifact. It leverages github action's artifact in the background to share docker image across jobs. The artifact created by each run of this action will be visible in the list of artifacts for the workflow and is prefixed with `action_image_artifact_`. For eg. docker image `foo:latest` will be uploaded as `action_image_artifact_foo_latest`.
+Github action for uploading docker image artifacts. It leverages github action's artifact in the background to share docker image across jobs. The artifact created by each run of this action will be visible in the list of artifacts for the workflow and is prefixed with `action_image_artifact_`. For eg. docker image `foo:latest` will be uploaded as `action_image_artifact_foo_latest`.
 
 See [docker-image-artifact-download](https://github.com/ishworkh/docker-image-artifact-download).
+
+# Please update you workflows to use proper semver versions introduced since v2.0.0.
 
 ## Inputs
 
@@ -37,7 +39,7 @@ jobs:
         EOF
 
     - name: Upload image
-      uses: ishworkh/docker-image-artifact-upload@v1
+      uses: ishworkh/docker-image-artifact-upload@v2.0.1
       with:
         image: "test_image:latest"
 
@@ -60,7 +62,7 @@ jobs:
         EOF
 
     - name: Upload image
-      uses: ishworkh/docker-image-artifact-upload@v1
+      uses: ishworkh/docker-image-artifact-upload@v2.0.1
       with:
         image: "test_image:latest"
         retention_days: "2"
@@ -89,7 +91,7 @@ jobs:
         load: true
 
     - name: Upload image
-      uses: ishworkh/docker-image-artifact-upload@v1
+      uses: ishworkh/docker-image-artifact-upload@v2.0.1
       with:
         image: "test_image:latest"
 
@@ -97,11 +99,14 @@ jobs:
 
 ## Changelogs
 
-# `v2.0.0`
+### `v2.0.0`
 
-- Use `docker-image-artifact` to `v2.0.0`.
-- Move code to `src` directory.
-- Introduce new major version for the release. No single major version like `v1` will be released from now on.
+- Bump `docker-image-artifact` to `v2.0.0`.
+- Introduce semver versioning for github action releases. No versions with just major segment i.e `v1` will be released from now on.
+
+### `v1`
+
+- Old release
 
 ## License
 
