@@ -1,8 +1,26 @@
-# Docker Image Artifact Upload
+# Docker Image Artifact Upload - DEPRECATED
+
+**DEPRECATED. This action will no longer be maintained and cease to get new features in future.**
+
+**Please migrate your workflows to use [_ishworkh/container-image-artifact-upload@v1.0.0_](https://github.com/ishworkh/container-image-artifact-upload) instead. It includes same features for docker and it adds support for podman on top of docker.**
 
 Github action for uploading docker image artifacts. It leverages github action's artifact in the background to share docker image across jobs. The artifact created by each run of this action will be visible in the list of artifacts for the workflow and is prefixed with `action_image_artifact_`. For eg. docker image `foo:latest` will be uploaded as `action_image_artifact_foo_latest`.
 
 See [docker-image-artifact-download](https://github.com/ishworkh/docker-image-artifact-download).
+
+## Migration to `container-image-artifact-upload`
+
+- Update `docker-image-image-upload` action in workflows to following,
+
+```yaml
+- name: Upload an image
+  uses: ishworkh/container-image-artifact-upload@v1.0.0
+  with:
+    image: "test_image:latest"
+    retention_days: "2"
+```
+
+Variable `container_engine` added in `container-image-artifact-upload` action defaults to `docker`.
 
 # Please update you workflows to use proper semver versions introduced since v2.0.0.
 
@@ -98,6 +116,14 @@ jobs:
 ```
 
 ## Changelogs
+
+### `v2.1.0`
+
+- Update README about deprecation.
+
+### `v2.0.1`
+
+- Fix README.
 
 ### `v2.0.0`
 
